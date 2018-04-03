@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<!--   Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">logout</a></p> -->
+  <h1>Welcome</h1>
+{% else %}
+	<div class="row home-style">
+		<div class="col">
+			<h1>The #1 Place for Yummy Foods.</h1>
+  			<p class="lead">Join EatNow today.</p>
+  			<a href="{% url 'signup' %}" role="button" class="btn btn-dark">Get started</a>
+  			Have an account? <a href="{% url 'login' %}" style="color: black">Log in</a>
+  		</div>
+  	</div>
+{% endif %}
+{% endblock %}
